@@ -17,7 +17,7 @@ const Box = () => {
   };
   const obtenerTareas= async ()=>{
     try {
-        const response= await fetch("https://playground.4geeks.com/todo/users/juanmanuel")
+        const response= await fetch("https://playground.4geeks.com/todo/users/juanParedes")
         console.log(response.status)
         if(response.status==404){
             await crearUsuario()
@@ -34,7 +34,7 @@ const Box = () => {
   }
   const crearUsuario=async()=>{
     try {
-        const response=await fetch("https://playground.4geeks.com/todo/users/juanmanuel")
+        const response=await fetch("https://playground.4geeks.com/todo/users/juanParedes")
     } catch (error) {
         console.log(error)
         
