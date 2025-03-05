@@ -7,7 +7,6 @@ const Box = () => {
   const user = "juanParedes";
   const baseUrl = `https://playground.4geeks.com/todo`;
 
-  // Obtener tareas del usuario
   const obtenerTareas = async () => {
     try {
       const response = await fetch(`${baseUrl}/users/${user}`);
@@ -19,14 +18,14 @@ const Box = () => {
       }
 
       const data = await response.json();
-      console.log("📥 Tareas obtenidas:", data.todos);
+      console.log(" Tareas obtenidas:", data.todos);
       setItems(data.todos || []);
     } catch (error) {
       console.error(" Error al obtener tareas:", error);
     }
   };
 
-  // Crear usuario en la API
+
   const crearUsuario = async () => {
     try {
       const response = await fetch(`${baseUrl}/users/${user}`, {
@@ -46,7 +45,7 @@ const Box = () => {
     }
   };
 
-  // Agregar tarea usando el método POST
+
   const agregarTarea = async () => {
     if (inputValue.trim() === "") return;
 
@@ -62,18 +61,17 @@ const Box = () => {
       });
 
       if (response.ok) {
-        console.log("✅ Tarea agregada correctamente");
-        obtenerTareas(); // Recargar tareas desde el servidor
+        console.log(" Tarea agregada correctamente");
+        obtenerTareas(); 
         setInputValue("");
       } else {
-        console.error("❌ Error al agregar tarea:", response.status);
+        console.error(" Error al agregar tarea:", response.status);
       }
     } catch (error) {
-      console.error("❌ Error al agregar tarea:", error);
+      console.error(" Error al agregar tarea:", error);
     }
   };
 
-  // Eliminar tarea usando DELETE
   const eliminarTarea = async (id) => {
     try {
       const response = await fetch(`${baseUrl}/todos/${id}`, {
@@ -81,13 +79,13 @@ const Box = () => {
       });
 
       if (response.ok) {
-        console.log("🗑️ Tarea eliminada");
+        console.log(" Tarea eliminada");
         obtenerTareas();
       } else {
-        console.error("❌ Error al eliminar tarea:", response.status);
+        console.error(" Error al eliminar tarea:", response.status);
       }
     } catch (error) {
-      console.error("❌ Error al eliminar tarea:", error);
+      console.error(" Error al eliminar tarea:", error);
     }
   };
 
